@@ -20,7 +20,7 @@ void Dialog::on_pushButton_clicked()
     if (read_text == password) {
         ui->label->setText("True");
         close();
-        emit atData("Entering..");
+        emit AtData("Entering..");
     } else {
         ui->label->setText("Error");
     }

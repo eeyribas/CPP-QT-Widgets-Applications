@@ -11,7 +11,7 @@ Job::~Job()
     stop = false;
 }
 
-void Job::Start(QString name)
+void Job::OnStart(QString name)
 {
     stop = false;
 
@@ -20,12 +20,13 @@ void Job::Start(QString name)
 
         if (stop)
             break;
-        emit atNumber(name, count);
+
+        emit AtNumber(name, count);
         QThread::currentThread()->msleep(100);
     }
 }
 
-void Job::Stop()
+void Job::OnStop()
 {
     stop = true;
     count = 0;

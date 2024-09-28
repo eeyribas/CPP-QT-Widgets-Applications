@@ -19,9 +19,9 @@ public:
     ~MainWindow();
 
 public slots:
-    void UploadProgress(qint64 byte_sents, qint64 byte_totals);
-    void ReplyFinished(QNetworkReply*);
-    void LoadError(QNetworkReply::NetworkError);
+    void OnUploadProgress(qint64 byte_sents, qint64 byte_totals);
+    void OnReplyFinished(QNetworkReply*);
+    void OnLoadError(QNetworkReply::NetworkError);
 
 private slots:
     void on_pushButton_clicked();

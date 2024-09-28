@@ -44,7 +44,7 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     connect(signal_mapper, SIGNAL(mapped(int)),
-            this, SLOT(HandleButton(int)));
+            this, SLOT(OnHandleButton(int)));
 }
 
 MainWindow::~MainWindow()
@@ -52,7 +52,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::HandleButton(int button_id)
+void MainWindow::OnHandleButton(int button_id)
 {
     if (buttons_state[button_id] == false) {
         push_buttons[button_id]->setStyleSheet("QPushButton { background-color: rgb(194, 194, 194); border: 1px solid black; border-radius: 5px; width: 45px; height: 45px; }");

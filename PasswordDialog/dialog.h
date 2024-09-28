@@ -16,7 +16,7 @@ public:
     ~Dialog();
 
 signals:
-    void atData(QString text);
+    void AtData(QString text);
 
 private slots:
     void on_pushButton_clicked();

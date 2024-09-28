@@ -17,10 +17,10 @@ public:
     ~MainWindow();
 
 signals:
-    void atSum();
-    void atSubstract();
-    void atMultiple();
-    void atDivide();
+    void AtSum();
+    void AtSubstract();
+    void AtMultiple();
+    void AtDivide();
 
 private slots:
     void on_pushButton_clicked();
@@ -28,10 +28,10 @@ private slots:
     void on_pushButton_3_clicked();
     void on_pushButton_4_clicked();
 
-    void SumFunction();
-    void SubstractFunction();
-    void MultipleFunction();
-    void DivideFunction();
+    void OnSumFunction();
+    void OnSubstractFunction();
+    void OnMultipleFunction();
+    void OnDivideFunction();
 
 private:
     Ui::MainWindow *ui;

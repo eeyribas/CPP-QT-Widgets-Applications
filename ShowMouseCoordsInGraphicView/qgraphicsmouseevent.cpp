@@ -15,6 +15,6 @@ void QGraphicsMouseEvent::mouseMoveEvent(QMouseEvent *mouse_event)
     QPoint mouse_pos = mouse_event->pos();
     if (mouse_pos.x() <= this->size().width() && mouse_pos.y() <= this->size().height()) {
         if (mouse_pos.x() > 0 && mouse_pos.y() > 0)
-            emit atMousePosition(mouse_pos);
+            emit AtMousePosition(mouse_pos);
     }
 }

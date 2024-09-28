@@ -21,7 +21,7 @@ public:
     ~MainWindow();
 
 public slots:
-    void HandleButton(int button_id);
+    void OnHandleButton(int button_id);
 
 private:
     Ui::MainWindow *ui;

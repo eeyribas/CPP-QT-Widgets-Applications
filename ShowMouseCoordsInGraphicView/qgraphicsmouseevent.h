@@ -15,7 +15,7 @@ public:
     ~QGraphicsMouseEvent();
 
 signals:
-    void atMousePosition(QPoint &point);
+    void AtMousePosition(QPoint &point);
 
 protected:
     void mouseMoveEvent(QMouseEvent *mouse_event);

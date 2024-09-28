@@ -10,11 +10,11 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    qgraphicsmouseevent.cpp
+        qgraphicsmouseevent.cpp
 
 HEADERS += \
         mainwindow.h \
-    qgraphicsmouseevent.h
+        qgraphicsmouseevent.h
 
 FORMS += \
         mainwindow.ui

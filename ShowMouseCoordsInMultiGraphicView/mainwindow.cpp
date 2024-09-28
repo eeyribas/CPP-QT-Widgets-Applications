@@ -53,32 +53,32 @@ MainWindow::MainWindow(QWidget *parent) :
     DrawShape(ui->graphicsView_3, graphics_scene, pixmap, painter, pen, array_2, 57, 53, 34, 21);
     DrawShape(ui->graphicsView_3, graphics_scene, pixmap, painter, pen, array_3, 114, 53, 34, 21);
 
-    connect(ui->graphicsView, SIGNAL(atMousePressed()),
-            this, SLOT(LeftMousePressedFunction()));
-    connect(ui->graphicsView, SIGNAL(atMouseMoved()),
-            this, SLOT(LeftMouseMovedFunction()));
-    connect(ui->graphicsView, SIGNAL(atMouseReleased()),
-            this, SLOT(LeftMouseReleasedFunction()));
-    connect(ui->graphicsView, SIGNAL(atMouseDoubleClick()),
-            this, SLOT(LeftMouseDoubleClickFunction()));
+    connect(ui->graphicsView, SIGNAL(AtMousePressed()),
+            this, SLOT(OnLeftMousePressedFunction()));
+    connect(ui->graphicsView, SIGNAL(AtMouseMoved()),
+            this, SLOT(OnLeftMouseMovedFunction()));
+    connect(ui->graphicsView, SIGNAL(AtMouseReleased()),
+            this, SLOT(OnLeftMouseReleasedFunction()));
+    connect(ui->graphicsView, SIGNAL(AtMouseDoubleClick()),
+            this, SLOT(OnLeftMouseDoubleClickFunction()));
 
-    connect(ui->graphicsView_2, SIGNAL(atMousePressed()),
-            this, SLOT(MiddleMousePressedFunction()));
-    connect(ui->graphicsView_2, SIGNAL(atMouseMoved()),
-            this, SLOT(MiddleMouseMovedFunction()));
-    connect(ui->graphicsView_2, SIGNAL(atMouseReleased()),
-            this, SLOT(MiddleMouseReleasedFunction()));
-    connect(ui->graphicsView_2, SIGNAL(atMouseDoubleClick()),
-            this, SLOT(MiddleMouseDoubleClickFunction()));
+    connect(ui->graphicsView_2, SIGNAL(AtMousePressed()),
+            this, SLOT(OnMiddleMousePressedFunction()));
+    connect(ui->graphicsView_2, SIGNAL(AtMouseMoved()),
+            this, SLOT(OnMiddleMouseMovedFunction()));
+    connect(ui->graphicsView_2, SIGNAL(AtMouseReleased()),
+            this, SLOT(OnMiddleMouseReleasedFunction()));
+    connect(ui->graphicsView_2, SIGNAL(AtMouseDoubleClick()),
+            this, SLOT(OnMiddleMouseDoubleClickFunction()));
 
-    connect(ui->graphicsView_3, SIGNAL(atMousePressed()),
-            this, SLOT(RightMousePressedFunction()));
-    connect(ui->graphicsView_3, SIGNAL(atMouseMoved()),
-            this, SLOT(RightMouseMovedFunction()));
-    connect(ui->graphicsView_3, SIGNAL(atMouseReleased()),
-            this, SLOT(RightMouseReleasedFunction()));
-    connect(ui->graphicsView_3, SIGNAL(atMouseDoubleClick()),
-            this, SLOT(RightMouseDoubleClickFunction()));
+    connect(ui->graphicsView_3, SIGNAL(AtMousePressed()),
+            this, SLOT(OnRightMousePressedFunction()));
+    connect(ui->graphicsView_3, SIGNAL(AtMouseMoved()),
+            this, SLOT(OnRightMouseMovedFunction()));
+    connect(ui->graphicsView_3, SIGNAL(AtMouseReleased()),
+            this, SLOT(OnRightMouseReleasedFunction()));
+    connect(ui->graphicsView_3, SIGNAL(AtMouseDoubleClick()),
+            this, SLOT(OnRightMouseDoubleClickFunction()));
 }
 
 MainWindow::~MainWindow()
@@ -86,17 +86,17 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::LeftMousePressedFunction()
+void MainWindow::OnLeftMousePressedFunction()
 {
     MousePressedFunction(ui->label_8, ui->graphicsView->x_press_value, ui->graphicsView->y_press_value, 0);
 }
 
-void MainWindow::MiddleMousePressedFunction()
+void MainWindow::OnMiddleMousePressedFunction()
 {
     MousePressedFunction(ui->label_11, ui->graphicsView_2->x_press_value, ui->graphicsView_2->y_press_value, 190);
 }
 
-void MainWindow::RightMousePressedFunction()
+void MainWindow::OnRightMousePressedFunction()
 {
     MousePressedFunction(ui->label_12, ui->graphicsView_3->x_press_value, ui->graphicsView_3->y_press_value, 390);
 }
@@ -125,17 +125,17 @@ void MainWindow::MousePressedFunction(QLabel *label, int tmp_x_press_value, int 
         label->setGeometry(125 + x_sum, y_coordinaat, 54, 10);
 }
 
-void MainWindow::LeftMouseMovedFunction()
+void MainWindow::OnLeftMouseMovedFunction()
 {
     MouseMovedFunction(ui->label_8, ui->graphicsView->x_first_move_value, ui->graphicsView->y_first_move_value, ui->graphicsView->y_move_value, 0);
 }
 
-void MainWindow::MiddleMouseMovedFunction()
+void MainWindow::OnMiddleMouseMovedFunction()
 {
     MouseMovedFunction(ui->label_11, ui->graphicsView_2->x_first_move_value, ui->graphicsView_2->y_first_move_value, ui->graphicsView_2->y_move_value, 190);
 }
 
-void MainWindow::RightMouseMovedFunction()
+void MainWindow::OnRightMouseMovedFunction()
 {
    MouseMovedFunction(ui->label_12, ui->graphicsView_3->x_first_move_value, ui->graphicsView_3->y_first_move_value, ui->graphicsView_3->y_move_value, 390);
 }
@@ -169,17 +169,17 @@ void MainWindow::MouseMovedFunction(QLabel *label, int tmp_x_first_move_value, i
     }
 }
 
-void MainWindow::LeftMouseReleasedFunction()
+void MainWindow::OnLeftMouseReleasedFunction()
 {
     MouseReleasedFunction(ui->graphicsView, ui->label_8, ui->graphicsView->y_first_move_value, ui->graphicsView->x_last_move_value, ui->graphicsView->y_last_move_value);
 }
 
-void MainWindow::MiddleMouseReleasedFunction()
+void MainWindow::OnMiddleMouseReleasedFunction()
 {
     MouseReleasedFunction(ui->graphicsView_2, ui->label_11, ui->graphicsView_2->y_first_move_value, ui->graphicsView_2->x_last_move_value, ui->graphicsView_2->y_last_move_value);
 }
 
-void MainWindow::RightMouseReleasedFunction()
+void MainWindow::OnRightMouseReleasedFunction()
 {
     MouseReleasedFunction(ui->graphicsView_3, ui->label_12, ui->graphicsView_3->y_first_move_value, ui->graphicsView_3->x_last_move_value, ui->graphicsView_3->y_last_move_value);
 }
@@ -235,17 +235,17 @@ void MainWindow::MouseReleasedFunction(QGraphicsView *graphics_view, QLabel *lab
     }
 }
 
-void MainWindow::LeftMouseDoubleClickFunction()
+void MainWindow::OnLeftMouseDoubleClickFunction()
 {
     MouseDoubleClickFunction(ui->graphicsView, ui->label_8, 0);
 }
 
-void MainWindow::MiddleMouseDoubleClickFunction()
+void MainWindow::OnMiddleMouseDoubleClickFunction()
 {
     MouseDoubleClickFunction(ui->graphicsView_2, ui->label_11, 190);
 }
 
-void MainWindow::RightMouseDoubleClickFunction()
+void MainWindow::OnRightMouseDoubleClickFunction()
 {
     MouseDoubleClickFunction(ui->graphicsView_3, ui->label_12, 390);
 }

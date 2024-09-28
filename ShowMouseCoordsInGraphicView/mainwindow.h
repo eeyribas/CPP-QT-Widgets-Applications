@@ -17,7 +17,7 @@ public:
     ~MainWindow();
 
 public slots:
-    void ShowMousePosition(QPoint &point);
+    void OnShowMousePosition(QPoint &point);
 
 private:
     Ui::MainWindow *ui;

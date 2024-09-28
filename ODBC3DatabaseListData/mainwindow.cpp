@@ -11,6 +11,9 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+
+    if (standard_item_model)
+        delete standard_item_model;
 }
 
 void MainWindow::on_pushButton_1_clicked()
@@ -19,8 +22,8 @@ void MainWindow::on_pushButton_1_clicked()
     if (QSqlDatabase::isDriverAvailable(DRIVER)) {
 
         QString host_name = "localhost";
-        dsn = QString("DRIVER={Firebird/InterBase(r) driver};SERVER=%1;DATABASE=%2;Trusted_Connection=Yes;").arg(host_name).arg("D:\\DatabaseFiles\\Example.FDB");
-        db = QSqlDatabase::addDatabase("QODBC3", "direbirdDB");
+        dsn = QString("DRIVER={Firebird/InterBase(r) driver};SERVER=%1;DATABASE=%2;Trusted_Connection=Yes;").arg(host_name).arg("D:\\DatabaseFiles\\Shade_B.FDB");
+        db = QSqlDatabase::addDatabase("QODBC3", "firebirdDB");
         db.setConnectOptions();
         db.setDatabaseName(dsn);
         db.setHostName(host_name);
@@ -28,9 +31,9 @@ void MainWindow::on_pushButton_1_clicked()
         db.setPassword("masterkey");
 
         if (db.open())
-            ui->label_1->setText("Connected");
+            ui->label->setText("Connected");
         else
-            ui->label_1->setText("Not Connected");
+            ui->label->setText("Not Connected");
     } else {
         ui->label_3->setText("Not Found");
     }
@@ -40,7 +43,7 @@ void MainWindow::on_pushButton_2_clicked()
 {
     db.close();
     db.removeDatabase(QSqlDatabase::defaultConnection);
-    ui->label_1->setText("Disconnect");
+    ui->label->setText("Disconnect");
 }
 
 void MainWindow::on_pushButton_3_clicked()

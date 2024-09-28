@@ -24,10 +24,10 @@ public:
     int x_last_move_value, y_last_move_value;
 
 signals:
-    void atMousePressed();
-    void atMouseMoved();
-    void atMouseReleased();
-    void atMouseDoubleClick();
+    void AtMousePressed();
+    void AtMouseMoved();
+    void AtMouseReleased();
+    void AtMouseDoubleClick();
 };
 
 #endif // MOUSEMOVEFUNCTION_H

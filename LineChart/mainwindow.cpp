@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->widget->yAxis->setRange(-2,2);
 
     connect(&data_timer, SIGNAL(timeout()),
-            this, SLOT(RealTimeData()));
+            this, SLOT(OnRealTimeData()));
     data_timer.start(0);
 }
 
@@ -23,7 +23,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::RealTimeData()
+void MainWindow::OnRealTimeData()
 {
     static QTime time(QTime::currentTime());
     double key_time = time.elapsed() / 1000.0;

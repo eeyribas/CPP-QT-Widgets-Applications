@@ -13,6 +13,9 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+
+    if (network_access_manager)
+        delete network_access_manager;
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -31,19 +34,19 @@ void MainWindow::on_pushButton_clicked()
     network_reply = network_access_manager->put(request, byte_file);
 
     connect(network_reply, SIGNAL(uploadProgress(qint64, qint64)),
-            this, SLOT(UploadProgress(qint64, qint64)));
+            this, SLOT(OnUploadProgress(qint64, qint64)));
     connect(network_access_manager, SIGNAL(finished(QNetworkReply*)),
-            this, SLOT(ReplyFinished(QNetworkReply*)));
+            this, SLOT(OnReplyFinished(QNetworkReply*)));
     connect(network_reply, SIGNAL(error(QNetworkReply::NetworkError)),
-            this, SLOT(LoadError(QNetworkReply::NetworkError)));
+            this, SLOT(OnLoadError(QNetworkReply::NetworkError)));
 }
 
-void MainWindow::UploadProgress(qint64 byte_sents, qint64 byte_totals)
+void MainWindow::OnUploadProgress(qint64 byte_sents, qint64 byte_totals)
 {
     qDebug() << "Uploaded : " << byte_sents << " of " << byte_totals;
 }
 
-void MainWindow::ReplyFinished(QNetworkReply *)
+void MainWindow::OnReplyFinished(QNetworkReply *)
 {
     if (network_reply->error() == QNetworkReply::NoError)
         qDebug() << "Ftp complete.";
@@ -55,7 +58,7 @@ void MainWindow::ReplyFinished(QNetworkReply *)
     network_reply->deleteLater();
 }
 
-void MainWindow::LoadError(QNetworkReply::NetworkError error)
+void MainWindow::OnLoadError(QNetworkReply::NetworkError error)
 {
     qDebug() << "Load Error : " << error;
 }

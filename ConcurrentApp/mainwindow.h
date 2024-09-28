@@ -18,12 +18,12 @@ public:
     ~MainWindow();
 
 signals:
-    void atStop1();
-    void atStop2();
+    void AtStop1();
+    void AtStop2();
 
 public slots:
-    void NewNumber1(QString name, int number);
-    void NewNumber2(QString name, int number);
+    void OnNewNumber1(QString name, int number);
+    void OnNewNumber2(QString name, int number);
 
 private slots:
     void on_pushButton_clicked();

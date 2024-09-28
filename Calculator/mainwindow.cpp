@@ -13,23 +13,23 @@ MainWindow::MainWindow(QWidget *parent) :
         QString button_name = "pushButton_" + QString::number(i);
         number_buttons[i] = MainWindow::findChild<QPushButton *>(button_name);
         connect(number_buttons[i], SIGNAL(released()),
-                this, SLOT(NumPressed()));
+                this, SLOT(OnNumPressed()));
     }
 
     connect(ui->pushButton_10, SIGNAL(released()),
-            this, SLOT(ClearButtonPressed()));
+            this, SLOT(OnClearButtonPressed()));
     connect(ui->pushButton_11, SIGNAL(released()),
-            this, SLOT(ChangeNumberSign()));
+            this, SLOT(OnChangeNumberSign()));
     connect(ui->pushButton_12, SIGNAL(released()),
-            this, SLOT(MathButtonPressed()));
+            this, SLOT(OnMathButtonPressed()));
     connect(ui->pushButton_13, SIGNAL(released()),
-            this, SLOT(MathButtonPressed()));
+            this, SLOT(OnMathButtonPressed()));
     connect(ui->pushButton_14, SIGNAL(released()),
-            this, SLOT(MathButtonPressed()));
+            this, SLOT(OnMathButtonPressed()));
     connect(ui->pushButton_15, SIGNAL(released()),
-            this, SLOT(MathButtonPressed()));
+            this, SLOT(OnMathButtonPressed()));
     connect(ui->pushButton_19, SIGNAL(released()),
-            this, SLOT(EqualButtonPressed()));
+            this, SLOT(OnEqualButtonPressed()));
 }
 
 MainWindow::~MainWindow()
@@ -37,7 +37,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::NumPressed()
+void MainWindow::OnNumPressed()
 {
     QPushButton *button = (QPushButton *)sender();
     QString button_value = button->text();
@@ -52,7 +52,7 @@ void MainWindow::NumPressed()
     }
 }
 
-void MainWindow::MathButtonPressed()
+void MainWindow::OnMathButtonPressed()
 {
     divide_trigger = false;
     multiply_trigger = false;
@@ -77,7 +77,7 @@ void MainWindow::MathButtonPressed()
     ui->lineEdit->setText("");
 }
 
-void MainWindow::EqualButtonPressed()
+void MainWindow::OnEqualButtonPressed()
 {
     double solution = 0;
     QString display_value = ui->lineEdit->text();
@@ -95,7 +95,7 @@ void MainWindow::EqualButtonPressed()
     ui->lineEdit->setText(QString::number(solution));
 }
 
-void MainWindow::ChangeNumberSign()
+void MainWindow::OnChangeNumberSign()
 {
     QString display_value = ui->lineEdit->text();
 
@@ -107,7 +107,7 @@ void MainWindow::ChangeNumberSign()
     }
 }
 
-void MainWindow::ClearButtonPressed()
+void MainWindow::OnClearButtonPressed()
 {
     ui->lineEdit->clear();
 }

@@ -7,14 +7,14 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    connect(this, SIGNAL(atSum()),
-            this, SLOT(SumFunction()));
-    connect(this, SIGNAL(atSubstract()),
-            this, SLOT(SubstractFunction()));
-    connect(this, SIGNAL(atMultiple()),
-            this, SLOT(MultipleFunction()));
-    connect(this, SIGNAL(atDivide()),
-            this, SLOT(DivideFunction()));
+    connect(this, SIGNAL(AtSum()),
+            this, SLOT(OnSumFunction()));
+    connect(this, SIGNAL(AtSubstract()),
+            this, SLOT(OnSubstractFunction()));
+    connect(this, SIGNAL(AtMultiple()),
+            this, SLOT(OnMultipleFunction()));
+    connect(this, SIGNAL(AtDivide()),
+            this, SLOT(OnDivideFunction()));
 }
 
 MainWindow::~MainWindow()
@@ -24,43 +24,43 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    emit atSum();
+    emit AtSum();
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    emit atSubstract();
+    emit AtSubstract();
 }
 
 void MainWindow::on_pushButton_3_clicked()
 {
-    emit atMultiple();
+    emit AtMultiple();
 }
 
 void MainWindow::on_pushButton_4_clicked()
 {
-    emit atDivide();
+    emit AtDivide();
 }
 
-void MainWindow::SumFunction()
+void MainWindow::OnSumFunction()
 {
     test.sum_value = test.SumCalc(ValueCalc1(), ValueCalc2());
     ui->textEdit_3->setText(QString::number(test.sum_value));
 }
 
-void MainWindow::SubstractFunction()
+void MainWindow::OnSubstractFunction()
 {
     test.substract_value = test.SubstractCalc(ValueCalc1(), ValueCalc2());
     ui->textEdit_3->setText(QString::number(test.substract_value));
 }
 
-void MainWindow::MultipleFunction()
+void MainWindow::OnMultipleFunction()
 {
     test.multiple_value = test.MultipleCalc(ValueCalc1(), ValueCalc2());
     ui->textEdit_3->setText(QString::number(test.multiple_value));
 }
 
-void MainWindow::DivideFunction()
+void MainWindow::OnDivideFunction()
 {
     test.divide_value = test.DivideCalc(ValueCalc1(), ValueCalc2());
     ui->textEdit_3->setText(QString::number(test.divide_value));

@@ -12,11 +12,11 @@ public:
     ~Job();
 
 signals:
-    void atNumber(QString name, int number);
+    void AtNumber(QString name, int number);
 
 public slots:
-    void Start(QString name);
-    void Stop();
+    void OnStart(QString name);
+    void OnStop();
 
 private:
     bool stop;

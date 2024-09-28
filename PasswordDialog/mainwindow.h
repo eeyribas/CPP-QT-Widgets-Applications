@@ -18,11 +18,10 @@ public:
 
 private slots:
     void on_pushButton_clicked();
+    void OnDialogFunction(QString text);
 
 private:
     Ui::MainWindow *ui;
-
-    void DialogFunction(QString text);
 
     Dialog *dialog;
 };

@@ -95,7 +95,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::RealTimeData()
+void MainWindow::OnRealTimeData()
 {
     static QTime time(QTime::currentTime());
     double key_time = time.elapsed()/1000.0;

@@ -18,11 +18,11 @@ void MainWindow::on_pushButton_clicked()
     dialog = new Dialog(this);
     dialog->show();
 
-    connect(dialog, SIGNAL(atData(QString)),
-            this, SLOT(DialogFunction(QString)));
+    connect(dialog, SIGNAL(AtData(QString)),
+            this, SLOT(OnDialogFunction(QString)));
 }
 
-void MainWindow::DialogFunction(QString text)
+void MainWindow::OnDialogFunction(QString text)
 {
     ui->label->setText(text);
 }

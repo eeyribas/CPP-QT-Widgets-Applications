@@ -30,8 +30,8 @@ MainWindow::MainWindow(QWidget *parent) :
     DrawShape(array_2, 57, 53, 34, 21);
     DrawShape(array_3, 114, 53, 34, 21);
 
-    connect(ui->graphicsView, SIGNAL(atMousePosition(QPoint&)),
-            this, SLOT(ShowMousePosition(QPoint&)));
+    connect(ui->graphicsView, SIGNAL(AtMousePosition(QPoint&)),
+            this, SLOT(OnShowMousePosition(QPoint&)));
 }
 
 MainWindow::~MainWindow()
@@ -48,7 +48,7 @@ MainWindow::~MainWindow()
         delete painter;
 }
 
-void MainWindow::ShowMousePosition(QPoint& pos)
+void MainWindow::OnShowMousePosition(QPoint& pos)
 {
     ui->label->setText(QString::number(pos.x()));
     ui->label_2->setText(QString::number(pos.y()));

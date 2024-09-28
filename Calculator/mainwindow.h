@@ -16,11 +16,11 @@ public:
     ~MainWindow();
 
 private slots:
-    void NumPressed();
-    void MathButtonPressed();
-    void EqualButtonPressed();
-    void ChangeNumberSign();
-    void ClearButtonPressed();
+    void OnNumPressed();
+    void OnMathButtonPressed();
+    void OnEqualButtonPressed();
+    void OnChangeNumberSign();
+    void OnClearButtonPressed();
 
 private:
     Ui::MainWindow *ui;

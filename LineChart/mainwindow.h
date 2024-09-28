@@ -17,7 +17,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void RealTimeData();
+    void OnRealTimeData();
 
 private:
     Ui::MainWindow *ui;

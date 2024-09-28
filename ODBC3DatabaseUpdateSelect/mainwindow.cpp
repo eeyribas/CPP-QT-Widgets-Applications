@@ -11,6 +11,12 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+
+    if (thread)
+        delete thread;
+
+    if (standard_item_model)
+        delete standard_item_model;
 }
 
 void MainWindow::on_pushButton_clicked()
