@@ -25,11 +25,11 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
-    double calc = 0.0;
-    bool divide_trigger = false;
-    bool multiply_trigger = false;
-    bool add_trigger = false;
-    bool substract_trigger = false;
+    double calc;
+    bool divide_trigger;
+    bool multiply_trigger;
+    bool add_trigger;
+    bool substract_trigger;
 };
 
 #endif // MAINWINDOW_H

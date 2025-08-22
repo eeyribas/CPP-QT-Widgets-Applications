@@ -7,6 +7,12 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    calc = 0.0;
+    divide_trigger = false;
+    multiply_trigger = false;
+    add_trigger = false;
+    substract_trigger = false;
+
     ui->lineEdit->setText(QString::number(calc));
     QPushButton *number_buttons[10];
     for (int i = 0; i < 10; ++i) {
@@ -39,7 +45,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::OnNumPressed()
 {
-    QPushButton *button = (QPushButton *)sender();
+    QPushButton *button = (QPushButton*)sender();
     QString button_value = button->text();
     QString display_value = ui->lineEdit->text();
 
@@ -62,7 +68,7 @@ void MainWindow::OnMathButtonPressed()
     QString display_value = ui->lineEdit->text();
     calc = display_value.toDouble();
 
-    QPushButton *button = (QPushButton *)sender();
+    QPushButton *button = (QPushButton*)sender();
     QString button_value = button->text();
 
     if (QString::compare(button_value, "/", Qt::CaseInsensitive) == 0)

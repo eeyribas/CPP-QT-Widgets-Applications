@@ -43,7 +43,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QVector<double> ticks;
     QVector<QString> labels;
     ticks << 1 << 2 << 3 << 4 << 5 << 6 << 7;
-    labels << "USA" << "Japan" << "Germany" << "France" << "UK" << "Italy" << "Canada";
+    labels << "USA" << "Japan" << "Germany" << "France"
+           << "UK" << "Italy" << "Canada";
 
     QSharedPointer<QCPAxisTickerText> text_ticker(new QCPAxisTickerText);
     text_ticker->addTicks(ticks, labels);
@@ -72,9 +73,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->widget->yAxis->grid()->setSubGridPen(QPen(QColor(130, 130, 130), 0, Qt::DotLine));
 
     QVector<double> fossil_data, nuclear_data, regen_data;
-    fossil_data  << 0.86*10.5 << 0.83*5.5 << 0.84*5.5 << 0.52*5.8 << 0.89*5.2 << 0.90*4.2 << 0.67*11.2;
-    nuclear_data << 0.08*10.5 << 0.12*5.5 << 0.12*5.5 << 0.40*5.8 << 0.09*5.2 << 0.00*4.2 << 0.07*11.2;
-    regen_data   << 0.06*10.5 << 0.05*5.5 << 0.04*5.5 << 0.06*5.8 << 0.02*5.2 << 0.07*4.2 << 0.25*11.2;
+    fossil_data  << 0.86 * 10.5 << 0.83 * 5.5 << 0.84 * 5.5 << 0.52 * 5.8
+                 << 0.89 * 5.2 << 0.90 * 4.2 << 0.67 * 11.2;
+    nuclear_data << 0.08 * 10.5 << 0.12 * 5.5 << 0.12 * 5.5 << 0.40 * 5.8
+                 << 0.09 * 5.2 << 0.00 * 4.2 << 0.07 * 11.2;
+    regen_data   << 0.06 * 10.5 << 0.05 * 5.5 << 0.04 * 5.5 << 0.06 * 5.8
+                 << 0.02 * 5.2 << 0.07 * 4.2 << 0.25 * 11.2;
     fossil->setData(ticks, fossil_data);
     nuclear->setData(ticks, nuclear_data);
     regen->setData(ticks, regen_data);

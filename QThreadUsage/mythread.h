@@ -9,6 +9,7 @@ class MyThread : public QThread
 public:
     explicit MyThread(QObject *parent = 0, bool state = false);
     void run();
+
     bool stop;
 
 signals:

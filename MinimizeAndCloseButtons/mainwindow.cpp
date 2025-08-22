@@ -7,7 +7,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::CustomizeWindowHint);
+    setWindowFlags(Qt::Window | Qt::FramelessWindowHint |
+                   Qt::CustomizeWindowHint);
     setWindowIcon(QIcon(":/images/images/image.ico"));
 
     connect(ui->pushButton, SIGNAL(clicked()),
