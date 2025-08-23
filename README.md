@@ -4,7 +4,7 @@ The applications are related to topics such as database processes, serial port c
 
 Programming Language: C++ Programming Language
 
-Programming Language Version: STL C++11
+Programming Language Version: STL C++11, C++17
 
 Framework: Qt5 (Version: Qt 5.11.3)
 
